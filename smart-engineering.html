@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    var contentCN = `
+# {name} App 介绍
+## 简介
+智慧工程App是一个用于智能设备安装、调试、维护的工具。搭配各类智慧SaaS平台，智慧工程App能够帮助施工⼈员在现场复杂环境下，完成智能设备添加、房间⽣成、场景配置等⼀系列部署操作，形成快速、批量化的施工落地能力。
+## 功能模块介绍
+### 账号功能模块
+#### 登录
+- 手机号登录：通过手机号登录，登录成功后，用户信息将被储存云端
+- 邮箱登录：通过邮箱实现注登录，登录成功后，用户信息将被储存云端
+#### 登出
+- 退出登录：用户可退出App当前登录状态
+#### 账号查看
+- 账号信息查看：可以查看当前登录账号的信息
+### 任务模块
+#### 任务信息
+- 施工任务：查看施工项目名称、项目地址、任务启止时间；
+- 维修任务：查看维修项目名称、项目地址、任务启止时间；
+- 筛选功能：可以根据项目进展进行筛选；
+### 项目信息
+- 项目信息查看：可以查看项目中的房源状态；
+- 筛选功能：支持筛选房源；
+### 设备管理模块
+#### 设备基本信息
+- 设备添加：支持手动添加、自动发现、扫一扫
+- 移除设备：支持移除设备
+- 按区域筛选设备列表：按区域筛选显示所有已经添加的设备
+- 查看设备基本信息：设备ID、IP地址等信息
+- 修改设备名称：用户可设置用户名
+#### 设备控制
+- 手动控制：根据应用的设备面板控制设备
+### 智能功能模块
+#### 自动化
+- 创建自动化：用户可一键创建自动化
+#### 任务校验模块
+- 任务校验功能：支持校验设备安装是否正确
+### 常见问题
+- 请在「App - 个人中心 - 常见问题与反馈」提交您的问题，我们会及时回复
+`;
+
+    var contentEN = `
+# {name} App Introduction
+## Introduction
+Smart Construction App is a tool for smart equipment installation, debugging, and maintenance. With various types of smart SaaS platforms, the smart engineering app can help construction crews complete a series of deployment operations such as adding smart devices, setting up rooms, and configuring scenes in a complex environment on the site, forming a fast, batch-based construction ability.
+## Introduction of functional modules
+
+### Account Function Module
+#### login：
+- Mobile phone number login: After successful login, user information will be stored in the cloud.
+- Mailbox login:  Login by mailbox, after successful login, user information will be stored in the cloud.
+- Log out:   Users can log out of the app's current login status.
+#### Account View
+- Account information view: You can view the information of the current login account
+### Mission module
+#### Mission information
+- Construction tasks: check the construction project name, project address, task start and end times.
+- Maintenance tasks: check the name of the maintenance item, the address of the item, the start and end time of the task.
+- Filter function: Filter function can be done according to the progress of the project.
+
+#### Project Information
+- Project information viewing: the status of properties in the project can be viewed.
+- Filter function: support for Filter function of listings.
+
+### Equipment management module
+#### Basic equipment information
+
+- Device addition: support manual addition, automatic discovery, sweep
+- Removal of equipment: Support for removal of equipment
+- Filter the list of devices by region: Filter by region to show all the devices that have been added
+- View basic device information: device ID, IP address, etc.
+- Modify device name: user can set user name
+
+#### equipment control
+
+- Manual control: control the device according to the device panel of the application
+
+### Intelligent Function Module
+- Automation: Users can create automation with one click
+
+### Task validation module
+
+- Task verification function: Support to verify that the equipment is installed correctly
+
+### FAQ & Feedback
+  - Please submit your issue in 「App - Personal Center - FAQ & FeedBack」, we will reply as soon as possible.
+`;
+
+    let params = Object.fromEntries(new URLSearchParams(location.search));
+    document.title = params.name || '';
+
+    var content = (params.lang === 'zh') ? contentCN : contentEN;
+    content = content.replace('{name}', params.name || '');
+    document.getElementById('content').innerHTML = marked(content);
+  </script>
+</body>
+</html>
