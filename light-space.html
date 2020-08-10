@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    var contentCN = `
+# {name} App 介绍
+
+## 简介
+
+打造一款能实现对多品牌、多种品类智能设备控制的手机应用软件。能够实现远程操控项目中的智能设备。 首创的天马座连接技术，支持自动检测新设备，一键完成配网； 支持丰富的一键执行与自动化智能场景的组合，场景和设备的联动，让产品实现互动互通； 契合实际生活的权限管理和设备共享让设备使用更放心； 一款App畅行全球，无缝对接本地生活，使用户轻松控制智能设备，实时掌握项目中的设备情况，享受智能商用照明系统。
+
+## 功能模块介绍
+
+### 账号功能模块
+
+#### 注册
+
+- 手机号注册：通过手机号实现注册
+- 邮箱注册：通过邮箱实现注册
+
+#### 登录
+
+- 手机号登录：通过手机号登录，登录成功后，用户信息将被储存云端
+- 邮箱登录：通过邮箱实现注登录，登录成功后，用户信息将被储存云端
+- UID登录：如果客户自有用户体系，那么可以通过uid登录体系，接入我们的sdk
+
+#### 登出
+
+- 退出登录：用户可退出App当前登录状态
+- 停用账户：停用当前账户，一周删除该账号所有信息
+
+#### 账号设置
+
+- 设置头像：用户可上传自定义头像
+- 设置昵称：用户可设置用户名
+- 设置温度单位：用户可切换 App 内温度显示单位（摄氏度与华氏度）
+- 设置时区：用户可选择 App 内所在时区
+- 将账号密码保存到钥匙串中密码：用户可以在该账号首次登录后选择将账号密码保存到钥匙串中，
+- 之后无需输入账号密码即可登录（该功能Android端依赖于手机系统是否支持此功能）
+
+#### 密码设置
+
+- 忘记密码：支持手机号/邮箱登录时忘记密码，获取验证码即可登录
+- 修改密码：支持修改密码
+- 设置手势密码：支持设置打开 App 的手势密码
+
+### 项目功能模块
+
+#### 项目基本信息
+
+- 增加项目：支持添加项目
+- 删除项目：支持项目拥有者删除项目
+- 离开项目：支持项目管理员和普通成员离开项目
+- 切换项目：支持多项目的用户切换项目
+- 修改项目名称：用户可自主设置项目名称
+- 管理项目内区域：用户可自定义增删改项目内区域
+- 设置项目位置：支持设置项目位置
+- 展示当前项目天气信息：包括室外温湿度、室外pm2.5、室外空气质量、室外紫外线指数、室外风等级
+
+#### 项目成员管理
+
+- 增加项目成员：支持添加项目内成员
+- 删除项目成员：支持删除项目内成员
+- 设置项目成员权限：支持根据项目成员的角色来设置不同的权限
+
+#### 区域管理
+
+- 增加区域：支持增加区域
+- 删除区域：支持删除区域
+- 修改区域名称：支持修改区域名称
+- 管理区域设备：支持管理该区域内的不同设备
+
+### 设备管理功能模块
+
+#### 设备基本信息
+
+- 设备添加：支持手动添加、自动发现、扫一扫
+- 移除设备：支持移除设备
+- 设备列表排序：显示所有已经添加的设备列表，并支持排列顺序
+- 按区域筛选设备列表：按区域筛选显示所有已经添加的设备
+- 设备列表排列图示：宫格/列表切换
+- 查看设备基本信息：设备ID、IP地址等信息
+- 修改设备图片：自定义上传设备图片
+- 修改设备名称：用户可设置用户名
+- 查看设备关联的场景、自动化：查看并编辑该设备相关的场景、自动化
+- 查看设备帮助内容：用户可查看使用设备时遇到的常见问题
+- 反馈问题：用户提交使用该设备时的反馈意见
+
+#### 设备控制
+
+- 手动控制：根据应用的设备面板控制设备
+- 3d touch控制：支持用户通过3d touch控制
+
+#### 其他
+
+- 动态化：App 不需要升级，就可以支持新设备接入和控制（配网方式为新增的设备除外）
+- 共享设备：分享设备给他人（非当前项目的成员）
+
+### 智能功能模块
+
+#### 一键执行
+
+- 编辑“一键执行”：支持编辑“一键执行”
+- “一键执行”添加到Siri：支持将场景添加到Siri
+- 推荐“一键执行”：根据用户账号下的设备，个性化推荐“一键执行”
+
+#### 自动化
+
+- 编辑自动化：用户可设定自动化的条件及动作，当条件触发后自动执行设定动作
+
+### 消息功能模块
+
+#### Push
+
+- Push 集成通道：支持友盟、Google等push通道，发送运营 Push 和产品的告警 Push
+- Push 开关设置：支持开关设置，接收或者不接收不同类型的push消息
+- Push 免打扰设置：自定义push免打扰时段
+
+#### 消息中心
+
+- 消息分类：消息中心的消息分为告警、项目、通知三类
+
+### 常见问题
+
+- 请在「App - 个人中心 - 常见问题与反馈」提交您的问题，我们会及时回复
+`;
+
+    var contentEN = `
+# {name} App Introduction
+
+## Summary
+Free global App with various scenarios and powerful functions that can be used anytime and anywhere. Is a freeware global App with various scenarios and powerful functions that allows you to control different smart devices for different brands anytime and anywhere. Pegasus connection technology that allows the App to automatically check for updates and Tap-to-Pairing; support Tap-to-Run and Automation to combine various smart scenarios, which achieves linkage of scenarios and devices; improve using experience by considering authority management and device sharing of real-life. Users can easily control and check their devices, having a wonderful smart commercial lighting control system
+
+## Function Module Introduction
+- Account Function Module
+  - Sign Up
+  - Log In
+  - Sign Out
+  - Account Settings
+  - Password Settings
+- Project Function Module
+  - Basic Information
+  - Member Management
+  - Room Management
+- Device Management Function Module
+  - Basic Information
+  - Device Control
+- Smart Function Module
+  - Tap-to-Run
+  - Automation
+- Message Function Module
+  - Push
+  - Message Center
+- FAQ & Feedback
+  - Please submit your issue in 「App - Personal Center - FAQ & FeedBack」, we will reply as soon as possible.
+`;
+
+    let params = Object.fromEntries(new URLSearchParams(location.search));
+    document.title = params.name || '';
+
+    var content = (params.lang === 'zh') ? contentCN : contentEN;
+    content = content.replace('{name}', params.name || '');
+    document.getElementById('content').innerHTML = marked(content);
+  </script>
+</body>
+</html>
